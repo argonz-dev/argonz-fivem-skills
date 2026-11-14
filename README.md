@@ -33,8 +33,11 @@ argonz-fivem-skills/
 
 ## Pemasangan ke Antigravity
 
-Clone repo ini lalu tautkan (junction/symlink) atau salin ke direktori plugin global Antigravity (`~/.gemini/config/plugins/argonz-fivem-skills`):
+Salin isi repo (`plugin.json`, `README.md`, `skills/`) ke direktori plugin global Antigravity (`~/.gemini/config/plugins/argonz-fivem-skills`) — gunakan folder asli (bukan Windows Junction karena loader mengabaikan junction):
 
 ```powershell
-New-Item -ItemType Junction -Path "$env:USERPROFILE\.gemini\config\plugins\argonz-fivem-skills" -Target "D:\Blender\argonz-fivem-skills"
+$dst = "$env:USERPROFILE\.gemini\config\plugins\argonz-fivem-skills"
+New-Item -ItemType Directory -Force -Path $dst | Out-Null
+Copy-Item "D:\Blender\argonz-fivem-skills\plugin.json","D:\Blender\argonz-fivem-skills\README.md" $dst -Force
+Copy-Item "D:\Blender\argonz-fivem-skills\skills" $dst -Recurse -Force
 ```
