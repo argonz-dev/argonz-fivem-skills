@@ -1,14 +1,14 @@
 {
   "name": "argonz-fivem-skills",
   "displayName": "ARGONZ FiveM & Blender Pipeline Skills",
-  "version": "1.0.0",
-  "description": "End-to-end Blender to GTA V / FiveM MLO production skills: low-poly architecture with seamless ImageGen PBR textures, Sollumz & szio.gta5 split export, CodeWalker CLI roundtrip verification, DDS conversion, and water.xml wave/calming workflows.",
+  "version": "2.0.0",
+  "description": "Unified ARGONZ Blender & GTA V / FiveM MLO production skill: low-poly architecture (<1000 tris, ImageGen PBR), Sollumz & szio.gta5 split export, animated rail-following sectional doors (.ydr + .ycd + wall switches + Lua), CodeWalker CLI roundtrips, headless CodeWalker 3D viewer (cw_agent.py), DDS conversion, and water.xml tuning.",
   "author": {
     "name": "argonz-dev"
   },
   "suggestedPrompts": [
-    "Audit dan export scene Blender ini menjadi split .ydr, .ytd < 16 MB, .ytyp, dan .ymap siap stream FiveM",
-    "Desain ulang prop arsitektur ini agar <1000 tris dengan tekstur PBR seamless hasil image generator",
-    "Verifikasi hasil export .ydr/.ytd dengan codewalker-cli roundtrip dan atur CalmingQuads di water.xml"
+    "Gunakan argonz-fivem-skills untuk audit dan export scene Blender ini menjadi split .ydr, .ytd < 16 MB, .ytyp, dan .ymap siap stream FiveM",
+    "Buatkan pintu garasi sectional animasi rel melengkung (.ydr + .ycd buka/tutup), tombol exterior/interior, dan script FiveM Lua",
+    "Desain ulang prop arsitektur ini agar <1000 tris dengan tekstur PBR seamless hasil image generator dan verifikasi via codewalker-cli"
   ]
 }

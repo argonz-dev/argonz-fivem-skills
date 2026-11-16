@@ -118,5 +118,8 @@ light = Light(
   - `composite_flags1` (`62`): `map_weapon`, `map_dynamic`, `map_animal`, `map_cover`, `map_vehicle` = `True`
   - `composite_flags2` (`133414592`): `vehicle_not_bvh`, `vehicle_bvh`, `ped`, `ragdoll`, `animal`, `animal_ragdoll`, `object`, `plant`, `projectile`, `explosion`, `forklift_forks`, `test_weapon`, `test_camera`, `test_ai`, `test_script`, `test_vehicle_wheel`, `glass` = `True`
 - **Loose-vertex pruning**: After `bmesh.ops.delete(..., context="FACES")` (polygon subsets or skipping `skip_col` faces), delete orphan vertices with `not v.link_faces` (`context="VERTS"`) before converting to collision mesh so `calc_bound_bvh_extents` stays tight.
-- **Entity transform (`ymapexport` parity)**: `rotation=rot.inverted()`, `scale_xy=math.sqrt(max(sc.x * sc.y, 1e-6))`, `scale_z=float(sc.z)`.
+- **Entity transform (`ymapexport` parity)**: `rotation=rot.inverted()`, `scale_xy=math.sqrt(max(sc.x * sc.y, 1e-6))`, `scale_z=float(sc.z)`. Keep `abs(sc.x - sc.y) < 1e-3` on vanilla props (`.ytyp` MLO `Entities` and `.ymap` `CEntityDef` cannot represent non-uniform XY squash/stretch).
+- **Vanilla GTA V Props (`SOLLUMZ_ASSET_LIBRARY`) Direct Entity Registration**:
+  - Do NOT rename unmodified library objects to `SM_*` or convert them via `Convert to Drawable` -> custom `.ydr`. Preserve exact GTA archetype names (`re.sub(r"\.\d{3}$", "", obj.name)` when writing `Entity.archetype_name`) and library `sollum_type`/`sz_asset_*` properties (`obj.copy()`).
+  - Register unmodified vanilla props directly as `.ytyp` MLO interior room `Entities` or `.ymap` `Entity` entries (`0 KB` custom stream weight). Only rename and convert to a custom `.ydr` when the asset itself is modified/edited.
 - **YMAP extents**: Set `AssetMapData.flags = old_ymap.flags` (`MapFlags(0)`), compute tight `entities_extents` over transformed local `bb_min..bb_max` corners, and pad `streaming_extents` by `±Vector((300, 300, 300))`.
