@@ -63,7 +63,8 @@ Read [animated-sectional-doors-and-switches.md](./references/animated-sectional-
 
 Consult [water-xml-and-texconv.md](./references/water-xml-and-texconv.md) and [codewalker-headless-bridge.md](./references/codewalker-headless-bridge.md).
 
-1. **CodeWalker CLI (`codewalker-cli.exe`)**:
+1. **CodeWalker CLI (`tools/CodeWalkerCLI/codewalker-cli.exe`)**:
+   - Bundled in `../../tools/CodeWalkerCLI/codewalker-cli.exe` (with `Program.cs`, `Build.ps1`, `CodeWalker.Core.dll`, `strings.txt`).
    - Positional outputs only (no `-o`), and destination path must **not** pre-exist.
    - Run `xml export <asset> <out_dir> --names-dir <stream>` and `xml import <xml> <out_bin>` roundtrips on modified `.ydr`/`.ycd`/`.ytd`/`.ytyp`/`.ymap` files; check for unresolved `<Name>hash_...</Name>`.
 2. **`texconv.exe`**:

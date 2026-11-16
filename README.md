@@ -8,6 +8,12 @@ Bundle skills Antigravity (Plugin + Git repo) yang menyatukan seluruh pipeline *
 argonz-fivem-skills/
 ├── plugin.json
 ├── README.md
+├── tools/
+│   └── CodeWalkerCLI/
+│       ├── codewalker-cli.exe
+│       ├── CodeWalker.Core.dll
+│       ├── SharpDX.dll / SharpDX.Mathematics.dll
+│       ├── Program.cs / Build.ps1 / strings.txt
 └── skills/
     └── argonz-fivem-skills/
         ├── SKILL.md
